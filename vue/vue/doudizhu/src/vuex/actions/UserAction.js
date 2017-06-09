@@ -2,7 +2,7 @@ import {axPost} from '../../common/HttpBean'
 import userStore from '../stores/UserStore'
 
 export function zhuce(form,thisa){
-	axPost('http://localhost:3000/users/zhuce',$(form).serialize(),
+	axPost('/api/users/zhuce',$(form).serialize(),
 				function(res){
                    // userStore.commit('zhuce',res.data);
                 if(res.data=1){
@@ -15,7 +15,7 @@ export function zhuce(form,thisa){
 };
 
 export function login(form,thisa){
-	axPost('http://localhost:3000/users/login',$(form).serialize(),
+	axPost('/api/users/login',$(form).serialize(),
 				function(res){
                //userStore.commit('login',res.data);
                  if(res.data=1){
@@ -25,7 +25,7 @@ export function login(form,thisa){
                  	alert('登陆失败')
                  }
 				},function(err){
-					alert(err);
+					alert(err);	
 				});
 };
 

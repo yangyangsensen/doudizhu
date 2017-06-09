@@ -2,10 +2,21 @@ import {axGet} from '../../common/HttpBean'
 
 
 export function getRoomList(thisa){
-	axGet('http://localhost:3000/hall/getRoomList',{},
+	axGet('/api/hall/getRoomList',{},
 				function(res){
-	                alert(res.data);
+	                thisa.roomList=res.data;
 				},function(err){
 					alert(err);
 			});
+};
+
+export function newRoom(formObj,thisa){
+	alert("kkkkkkk");
+		axGet('/api/hall/newroom?'+formObj,
+				{},function(res){
+			     getRoomList(thisa);
+			     thisa.$router.push('/room');
+			},function(err){
+				alert(err);
+		});
 };

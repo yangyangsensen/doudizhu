@@ -6,7 +6,7 @@ import Register from '@/components/user/Register'
 import GameHall from '@/components/hall/GameHall'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
-
+import Room from '@/components/room/Room.vue'
 Vue.use(ElementUI)
 Vue.use(Router)
 
@@ -28,6 +28,11 @@ export default new Router({
       name: 'GameHall',
       component: GameHall
     },
+    {
+      path: '/Room',
+      name: 'Room',
+      component: Room
+    }
     
   ]
 })

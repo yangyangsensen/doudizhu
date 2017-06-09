@@ -33,6 +33,7 @@
 <script>
 	import {login} from '../vuex/actions/UserAction';
 	import  {getLogin} from '../vuex/getters/UserGetter'
+	
 //import {axPost} from '../common/HttpBean'
 export default {
 
