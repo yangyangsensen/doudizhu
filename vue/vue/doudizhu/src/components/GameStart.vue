@@ -49,9 +49,6 @@ export default {
 //		        });
 		}
 },
-computed:{
-	data:getLogin
-}
 }
 </script>
 

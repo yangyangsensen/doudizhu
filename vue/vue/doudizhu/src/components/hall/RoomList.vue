@@ -44,6 +44,17 @@
 		      label="创建时间"
 		     >
 		    </el-table-column>
+		     <el-table-column
+		      fixed="right"
+		      label="操作">
+		      <template scope="scope">
+		        <el-button
+		          type="text"
+		          size="small"  prop="room" @click='play(roomList[scope.$index])'>
+		                  进入
+		        </el-button>
+		      </template>
+		    </el-table-column>
 		  </el-table>
           <div v-for="room in roomList" class="wrap" >
           	 <a class="css-3d-btn" href="#">戳我!</a>
@@ -55,7 +66,7 @@
 	
 </template>
 <script>
-import {newRoom,getRoomList} from '../../vuex/actions/HallAction'
+import {newRoom,getRoomList,onroom} from '../../vuex/actions/HallAction'
 export default {
 	data() {
 	      return {
@@ -75,10 +86,14 @@ export default {
   		$(newRoomForm).hide();
   	},
   	newroom:function(){
-  		alert("ssssss");
   		let formObj ='roompwd='+newRoomForm.roompwd.value;
   	    newRoom(formObj,this);
+  	},
+  	play:function(e){
+  		let roomid ='roomid='+e.room;
+  	    onroom(roomid,this);
   	}
+  	
   }
 }
 </script>

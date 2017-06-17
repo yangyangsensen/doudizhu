@@ -60,19 +60,17 @@ router.get('/newroom', async function (ctx, next) {
           resolve(roomidRS);
     });
   })
-
-  await client.lpush('room','room'+roomid)
-
-  let date = new Date();
-  let time = dayArr[date.getDay()]+'-'+(date.getHours())+":"+(date.getMinutes())
+  let room = 'room'+roomid;     //房间键
+  await client.lpush('room',room);
   let roompwd = ctx.query.roompwd;
-  await new Promise(function(resolve,reject){
-    client.hmset('room'+roomid,'num',1,'start',0,'pwd',roompwd,'createtime',time,function(err,rs){
-      resolve();
-    })
-  });
-  
-  ctx.body='创建成功';
+  let date = new Date();
+  let time = dayArr[date.getDay()]+' '+(date.getHours())+":"+(date.getMinutes());
+  await client.hmset('room'+roomid,'num',1,'start',0,'pwd',roompwd,'createtime',time);
+  let msg={};
+  msg.id = loginbean.id;
+  msg.nicheng = loginbean.nicheng;
+  msg.room = room;
+  ctx.body=msg;
 
 })
 module.exports = router;

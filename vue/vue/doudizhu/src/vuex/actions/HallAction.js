@@ -2,8 +2,7 @@ import {axGet} from '../../common/HttpBean'
 
 
 export function getRoomList(thisa){
-	axGet('/api/hall/getRoomList',{},
-				function(res){
+	axGet('/api/hall/getRoomList',{},function(res){
 	                thisa.roomList=res.data;
 				},function(err){
 					alert(err);
@@ -11,11 +10,20 @@ export function getRoomList(thisa){
 };
 
 export function newRoom(formObj,thisa){
-	alert("kkkkkkk");
-		axGet('/api/hall/newroom?'+formObj,
-				{},function(res){
-			     getRoomList(thisa);
-			     thisa.$router.push('/room');
+		axGet('/api/hall/newroom?'+formObj,{},function(res){
+			if(res.data.id){
+				thisa.$router.push({ path: '/Room', query:res.data});
+			}
+			},function(err){
+				alert(err);
+		});
+};
+export function onroom(roomid,thisa){
+		axGet('/api/room?'+roomid,{},function(res){
+			
+			if(res.data.id){
+				thisa.$router.push({ path: '/Room', query:res.data});
+			}
 			},function(err){
 				alert(err);
 		});
