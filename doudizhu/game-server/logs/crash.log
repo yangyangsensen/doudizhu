@@ -1,0 +1,3 @@
+[2017-05-24 16:23:43.229] [INFO] crash-log - [32m[C:\tools\www\pomelo\HelloWorld\game-server\node_modules\pomelo\lib\master\master.js] [39m[connector],[connector-server-1],[1495614223228],[disconnect]
+[2017-06-10 15:20:09.609] [INFO] crash-log - [32m[C:\tools\www\pomelo\doudizhu\game-server\node_modules\pomelo\lib\master\master.js] [39m[connector],[connector-server-1],[1497079209608],[disconnect]
+[2017-06-14 10:35:32.604] [INFO] crash-log - [32m[C:\tools\www\pomelo\doudizhu\game-server\node_modules\pomelo\lib\master\master.js] [39m[connector],[connector-server-1],[1497407732604],[disconnect]
